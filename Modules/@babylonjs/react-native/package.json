@@ -1,7 +1,7 @@
 {
   "name": "@babylonjs/react-native",
   "title": "React Native Babylon",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Babylon Native integration into React Native",
   "main": "index.ts",
   "scripts": {
@@ -9,8 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/babylonjs/BabylonReactNative.git",
-    "baseUrl": "https://github.com/babylonjs/BabylonReactNative"
+    "url": "git+https://github.com/jihoobyeon/BabylonReactNative.git",
+    "baseUrl": "https://github.com/jihoobyeon/BabylonReactNative"
   },
   "keywords": [
     "react-native"
@@ -19,7 +19,7 @@
     "name": "Your Name",
     "email": "yourname@email.com"
   },
-  "homepage": "https://github.com/BabylonJS/BabylonReactNative#readme",
+  "homepage": "https://github.com/jihoobyeon/BabylonReactNative#readme",
   "license": "MIT",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
@@ -30,8 +30,7 @@
   "peerDependencies": {
     "@babylonjs/core": "^5.42.2",
     "react": ">=16.13.1",
-    "react-native": ">=0.63.1",
-    "react-native-permissions": "^3.0.0"
+    "react-native": ">=0.63.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
