@@ -1,0 +1,34 @@
+#import "AppDelegate.h"
+
+#import <React/RCTBridge.h>
+#import <React/RCTBundleURLProvider.h>
+#import <React/RCTDevSettings.h>
+
+@interface AppDelegate () <RCTBridgeDelegate>
+
+@end
+
+@implementation AppDelegate
+
+- (void)awakeFromNib {
+  [super awakeFromNib];
+
+  _bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:nil];
+}
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+  // Insert code here to initialize your application
+  [_bridge.devSettings setIsDebuggingRemotely:NO];
+}
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification {
+  // Insert code here to tear down your application
+}
+
+#pragma mark - RCTBridgeDelegate Methods
+
+- (NSURL *)sourceURLForBridge:(__unused RCTBridge *)bridge {
+  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"]; // .jsbundle;
+}
+
+@end
