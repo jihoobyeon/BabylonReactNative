@@ -1,0 +1,103 @@
+parameters:
+- name: name
+  type: string
+- name: vmImage
+  type: string
+- name: platform
+  type: string
+- name: napiType
+  type: string
+  default: direct
+  values:
+  - direct
+  - jsi
+- name: graphics_api
+  type: string
+  default: D3D11
+  
+jobs:
+  - job: ${{ parameters.name }}
+    timeoutInMinutes: 30
+    pool:
+      vmImage: ${{ parameters.vmImage }}
+    variables:
+      ${{ if eq(parameters.napiType, 'jsi') }}:
+        napiSuffix: '_JSI'
+        jsEngineDefine: '-DNAPI_JAVASCRIPT_ENGINE=JSI'
+      ${{ if ne(parameters.napiType, 'jsi') }}:
+        napiSuffix: ''
+        jsEngineDefine: ''
+      solutionName: 'Win32_${{ parameters.platform }}${{variables.napiSuffix}}'
+
+    steps:
+      - script: |
+          git submodule update --init --recursive
+        displayName: 'Checkout dependencies'
+    
+      - task: Npm@1
+        inputs:
+          command: 'install'
+          workingDir: 'Apps'
+        displayName: 'Install Babylon.js NPM packages'
+
+      - script: |
+          mkdir build${{ variables.solutionName }}
+          cd build${{ variables.solutionName }}
+          cmake -G "Visual Studio 16 2019" -A ${{ parameters.platform }} ${{ variables.jsEngineDefine }} -DBGFX_CONFIG_DEBUG=ON -DGRAPHICS_API=${{ parameters.graphics_api }} -DCMAKE_UNITY_BUILD=${UNITY_BUILD} ..
+        displayName: 'Generate ${{ variables.solutionName }} solution'
+    
+      - task: MSBuild@1
+        inputs:
+          solution: 'build${{ variables.solutionName }}/BabylonNative.sln'
+          maximumCpuCount: true
+          configuration: 'RelWithDebInfo'
+        displayName: 'Build ${{ variables.solutionName }}'
+    
+      - script: |
+          reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\ValidationTests.exe"
+          reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\ValidationTests.exe" /v DumpType /t REG_DWORD /d 2
+          reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\ValidationTests.exe" /v DumpCount /t REG_DWORD /d 1
+          reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\ValidationTests.exe" /v DumpFolder /t REG_SZ /d "$(Build.ArtifactStagingDirectory)/Dumps"
+        displayName: 'Enable Crash Dumps'
+    
+      - script: |
+          cd build${{ variables.solutionName }}\Apps\ValidationTests
+          cd RelWithDebInfo
+          ValidationTests
+        displayName: 'Validation Tests'
+    
+      - task: PublishBuildArtifacts@1
+        inputs:
+          artifactName: '${{ variables.solutionName }} - ${{ parameters.graphics_api }} Rendered Pictures'
+          pathtoPublish: 'build${{ variables.solutionName }}/Apps/ValidationTests/Results'
+        displayName: 'Publish Tests ${{ variables.solutionName }} Results'
+        condition: always()
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          artifactName: '${{ variables.solutionName }} - ${{ parameters.graphics_api }} Error Pictures'
+          pathtoPublish: 'build${{ variables.solutionName }}/Apps/ValidationTests/Errors'
+        displayName: 'Publish Tests ${{ variables.solutionName }} Errors'
+        condition: failed()
+    
+      - task: CopyFiles@2
+        inputs:
+          sourceFolder: 'build${{ variables.solutionName }}/Apps/ValidationTests/RelWithDebInfo'
+          contents: ValidationTests.*
+          targetFolder: '$(Build.ArtifactStagingDirectory)/Dumps'
+          cleanTargetFolder: false
+        displayName: 'Stage test app exe/pdb for publishing'
+        condition: failed()
+    
+      - task: PublishBuildArtifacts@1
+        inputs:
+          artifactName: '${{ variables.solutionName }} - ${{ parameters.graphics_api }} Crash Dumps'
+          pathtoPublish: '$(Build.ArtifactStagingDirectory)/Dumps'
+        displayName: 'Publish Tests ${{ variables.solutionName }} Dumps'
+        condition: failed()
+
+      - script: |
+          cd build${{ variables.solutionName }}\Apps\UnitTests
+          cd RelWithDebInfo
+          UnitTests
+        displayName: 'Unit Tests'

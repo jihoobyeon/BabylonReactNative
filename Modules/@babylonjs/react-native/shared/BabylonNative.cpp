@@ -1,5 +1,5 @@
 #include "BabylonNative.h"
-
+#include <AppKit/AppKit.h>
 #include <Babylon/Graphics/Device.h>
 #include <Babylon/JsRuntime.h>
 #include <Babylon/Plugins/NativeCamera.h>
@@ -8,7 +8,6 @@
 #include <Babylon/Plugins/NativeInput.h>
 #include <Babylon/Plugins/NativeOptimizations.h>
 #include <Babylon/Plugins/NativeTracing.h>
-#include <Babylon/Plugins/NativeXr.h>
 #include <Babylon/Polyfills/Window.h>
 #include <Babylon/Polyfills/XMLHttpRequest.h>
 #include <Babylon/Polyfills/Canvas.h>
@@ -39,7 +38,6 @@ namespace BabylonNative
             : m_env{ Napi::Attach<facebook::jsi::Runtime&>(jsiRuntime) }
             , m_jsDispatcher{ std::move(jsDispatcher) }
             , m_isRunning{ std::make_shared<bool>(true) }
-            , m_isXRActive{ std::make_shared<bool>(false) }
         {
             // Initialize a JS promise that will be returned by whenInitialized, and completed when NativeEngine is initialized.
             CreateInitPromise();
@@ -48,8 +46,6 @@ namespace BabylonNative
             Babylon::JsRuntime::CreateForJavaScript(m_env, Babylon::CreateJsRuntimeDispatcher(m_env, jsiRuntime, m_jsDispatcher, m_isRunning));
 
             // Initialize Babylon Native plugins
-            m_nativeXr.emplace(Babylon::Plugins::NativeXr::Initialize(m_env));
-            m_nativeXr->SetSessionStateChangedCallback([isXRActive{ m_isXRActive }](bool isSessionActive) { *isXRActive = isSessionActive; });
             Babylon::Plugins::NativeCapture::Initialize(m_env);
             m_nativeInput = &Babylon::Plugins::NativeInput::CreateForJavaScript(m_env);
             Babylon::Plugins::NativeOptimizations::Initialize(m_env);
@@ -139,8 +135,8 @@ namespace BabylonNative
         void RenderView()
         {
             if (m_newEngine)
-            {
-                UpdateGraphicsConfiguration();
+						{
+						  	UpdateGraphicsConfiguration();
             }
             // If rendering has not been explicitly enabled, or has been explicitly disabled, then don't try to render.
             // Otherwise rendering can be implicitly enabled, which may not be desirable (e.g. after the engine is disposed).
@@ -203,18 +199,6 @@ namespace BabylonNative
             m_nativeInput->TouchMove(pointerId, x, y);
         }
 
-        bool IsXRActive()
-        {
-            return *m_isXRActive;
-        }
-
-#if defined(__APPLE__) || defined(ANDROID)
-        void UpdateXRView(WindowType window)
-        {
-            m_nativeXr->UpdateWindow(window);
-        }
-#endif
-
         jsi::Value get(jsi::Runtime& runtime, const jsi::PropNameID& prop) override
         {
             const auto propName{ prop.utf8(runtime) };
@@ -262,11 +246,9 @@ namespace BabylonNative
         bool m_isRenderingEnabled{};
         std::once_flag m_isGraphicsInitialized{};
         Babylon::Plugins::NativeInput* m_nativeInput{};
-        std::optional<Babylon::Plugins::NativeXr> m_nativeXr{};
 
         Babylon::Graphics::WindowConfiguration m_windowConfig{};
 
-        std::shared_ptr<bool> m_isXRActive{};
         uint8_t mMSAAValue{};
         bool mAlphaPremultiplied{};
         bool m_newEngine{};
@@ -385,24 +367,4 @@ namespace BabylonNative
             nativeModule->SetTouchPosition(pointerId, x, y);
         }
     }
-
-    bool IsXRActive()
-    {
-        if (auto nativeModule{ g_nativeModule.lock() })
-        {
-            return nativeModule->IsXRActive();
-        }
-
-        return false;
-    }
-
-#if defined(__APPLE__) || defined(ANDROID)
-    void UpdateXRView(WindowType window)
-    {
-        if (auto nativeModule{ g_nativeModule.lock() })
-        {
-            nativeModule->UpdateXRView(window);
-        }
-    }
-#endif
 }
