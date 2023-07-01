@@ -1,0 +1,189 @@
+{
+  "buildCommand" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : false,
+    "targets" : null
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c6f23d533af06e840c0edc98980819749"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146cab48fc742e912f36303ceecffcd864b1"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c4fffcc31a0c85a27a1401a95f8b66981"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146cc77a978aaf8e40465b393dbdc07e1d58"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c0abd5f52f2435391f7cc9c8fc81b5f40"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146cb1b70886c32ec62667b84f4c8211da0c"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c3602553c8a70d0f98c8931ce381ce055"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c412db0bb193f0c39f0216a50f64c1125"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146cc3c6d5612d122ec1e8d63eff3147c1db"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c9e44d36dee654707c78a445f25dff69b"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146ca9445c2a18699c5fa3bfc72afad8e031"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c0a30f13eec8138ed6a7cb7264c511ff4"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c06ee85d55d904ec211b38ff7e179a070"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c8536a25d44216de5f3fd6c406ce427e8"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c86ad5d94188e786315e26640aa7d0ab3"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c68c191040f53d7d92c107ece77a87d62"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c1e7e7071c8475ded562a5bcbfe749d74"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c59a216e017056d49e309b15c7a620f2f"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146cd1ee4cf4b44069814e5cfe88e240b967"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c13581aa4a5e993164ed71bfb035a6de2"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146cb974ea877203e002b627d583583626c5"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c9a17f3ea8247de36a8380ae392d87dd2"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146cca7f181d20b0bd7a50cdab710b40aa83"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c59b42a1140fdb0c0a60ec2ab92dfcdda"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c561c0ecbdde4da2f110218352ed131ac"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c7aa47982afa6d002c7fe5a950ae666e3"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c4685ae2a21eb7db9d218db196faa0c5f"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c70f4583aed2aeec6f5cc293d8c61486b"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146ca222c0af86914f3a68adce0f41657635"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146cf20438d6f31bdfed2ec83666d6c2d901"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146ce2d7ddda421e3774699dca374b728eb4"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c02c2b2788e916343ecc0b534b2b01e0a"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c8e45a31c900ad71ee8d7dd06eba4a0ea"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146cef27f65398b98313491f7cc5bcbd8a33"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146cc7245511580d48c8fa5d0cf4b4df3cc7"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c26db9bfeaf7a485bc1b898d60f083524"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c557ac7115fb115fb8a8d2558ca65d67d"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c863e0e4843147b03ad6fcdfe00590226"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146cf77ac82b783034562581aeeff806cd47"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c1e8f93a7201df39a41d681bc2214a0da"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c1c70b354708b3d53c685998a58658a45"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146c2eb8979f8a91f72e0180cc3352bcd6b4"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146cc4b7c75dccf05692c045388d28b4bb96"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146cb0822c180e86659464a570741d3d7894"
+    },
+    {
+      "guid" : "cefe3157b151afbb9ce4b90602c5146ce46409d6e2ed51f81382c6ffc23c1209"
+    }
+  ],
+  "containerPath" : "/Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/macos/ReactNativeBabylon.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "undefined_arch",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : true,
+      "platform" : "macosx",
+      "sdk" : "macosx13.3",
+      "sdkVariant" : "macos",
+      "supportedArchitectures" : [
+        "arm64",
+        "arm64e",
+        "x86_64",
+        "x86_64h"
+      ],
+      "targetArchitecture" : "undefined_arch"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "",
+      "buildProductsPath" : "",
+      "derivedDataPath" : "/Users/jihoobyeon/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/jihoobyeon/Library/Developer/Xcode/DerivedData/ReactNativeBabylon-aocaenvmobhzguenzluzkyxloalt/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/jihoobyeon/Library/Developer/Xcode/DerivedData/ReactNativeBabylon-aocaenvmobhzguenzluzkyxloalt/Index.noindex/PrecompiledHeaders",
+      "pchPath" : ""
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

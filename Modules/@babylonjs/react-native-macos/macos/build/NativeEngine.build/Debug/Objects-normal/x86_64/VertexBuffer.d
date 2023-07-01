@@ -1,0 +1,19 @@
+dependencies: \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Plugins/NativeEngine/Source/VertexBuffer.cpp \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Plugins/NativeEngine/Source/VertexBuffer.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bgfx/include/bgfx/bgfx.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bgfx/include/bgfx/defines.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/napi/napi-jsi/include/napi/napi.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/macos/jsi/jsi/jsi.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/macos/jsi/jsi/jsi-inl.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/napi/napi-jsi/include/napi/napi-inl.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/gsl \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/algorithm \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/assert \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/span \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/byte \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/util \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/span_ext \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/pointers \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/string_span \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/narrow

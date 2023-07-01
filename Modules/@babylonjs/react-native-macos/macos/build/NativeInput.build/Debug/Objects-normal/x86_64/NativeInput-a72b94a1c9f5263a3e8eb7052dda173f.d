@@ -1,0 +1,32 @@
+dependencies: \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Plugins/NativeInput/Source/Shared/NativeInput.cpp \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Plugins/NativeInput/Source/Shared/NativeInput.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Core/JsRuntime/Include/Babylon/JsRuntimeScheduler.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Core/JsRuntime/Include/Babylon/JsRuntime.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/napi/napi-jsi/include/napi/env.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/napi/napi-jsi/include/napi/napi.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/macos/jsi/jsi/jsi.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/macos/jsi/jsi/jsi-inl.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/napi/napi-jsi/include/napi/napi-inl.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Plugins/NativeInput/Include/Babylon/Plugins/NativeInput.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Shared/arcana/containers/weak_table.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Shared/arcana/threading/dispatcher.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Shared/arcana/functional/inplace_function.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Shared/arcana/sentry.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Shared/arcana/threading/affinity.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Shared/arcana/threading/blocking_concurrent_queue.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Shared/arcana/threading/cancellation.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Shared/arcana/containers/ticketed_collection.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Shared/arcana/finally_scope.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Shared/arcana/containers/sorted_vector.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/gsl \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/algorithm \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/assert \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/span \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/byte \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/util \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/span_ext \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/pointers \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/string_span \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/arcana.cpp/Source/Submodules/GSL/include/gsl/narrow \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Plugins/NativeInput/Source/Shared/DeviceInputSystem.h

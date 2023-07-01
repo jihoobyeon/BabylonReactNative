@@ -8,7 +8,6 @@
 #include <Babylon/Plugins/NativeInput.h>
 #include <Babylon/Plugins/NativeOptimizations.h>
 #include <Babylon/Plugins/NativeTracing.h>
-#include <Babylon/Plugins/NativeXr.h>
 #include <Babylon/Polyfills/Window.h>
 #include <Babylon/Polyfills/XMLHttpRequest.h>
 #include <Babylon/Polyfills/Canvas.h>
@@ -48,8 +47,7 @@ namespace BabylonNative
             Babylon::JsRuntime::CreateForJavaScript(m_env, Babylon::CreateJsRuntimeDispatcher(m_env, jsiRuntime, m_jsDispatcher, m_isRunning));
 
             // Initialize Babylon Native plugins
-            m_nativeXr.emplace(Babylon::Plugins::NativeXr::Initialize(m_env));
-            m_nativeXr->SetSessionStateChangedCallback([isXRActive{ m_isXRActive }](bool isSessionActive) { *isXRActive = isSessionActive; });
+            
             Babylon::Plugins::NativeCapture::Initialize(m_env);
             m_nativeInput = &Babylon::Plugins::NativeInput::CreateForJavaScript(m_env);
             Babylon::Plugins::NativeOptimizations::Initialize(m_env);
@@ -73,7 +71,7 @@ namespace BabylonNative
             Napi::Detach(m_env);
         }
 
-        void UpdateView(WindowType window, size_t width, size_t height)
+			void UpdateView(Babylon::Graphics::WindowT window, size_t width, size_t height)
         {
             m_windowConfig.Window = window;
             m_windowConfig.Width = width;
@@ -85,12 +83,12 @@ namespace BabylonNative
         {
             if (!g_graphics)
             {
-                g_graphics = Babylon::Graphics::Device::Create(m_windowConfig);
+                g_graphics = std::make_unique<Babylon::Graphics::Device>(m_windowConfig);
                 g_update = std::make_unique<Babylon::Graphics::DeviceUpdate>(g_graphics->GetUpdate("update"));
             }
             else
             {
-                g_graphics->UpdateWindow(m_windowConfig);
+								g_graphics->UpdateWindow(m_windowConfig.Window);
                 g_graphics->UpdateSize(m_windowConfig.Width, m_windowConfig.Height);
             }
             g_graphics->UpdateMSAA(mMSAAValue);
@@ -155,6 +153,16 @@ namespace BabylonNative
 
         void Initialize()
         {
+						NSView *cv = [[NSApplication sharedApplication].mainWindow contentView];
+            id<MTLDevice> dev = MTLCreateSystemDefaultDevice();
+						MTKView *mv = [[MTKView alloc] initWithFrame:cv.bounds device:dev];
+						[cv addSubview:mv];
+						
+						m_windowConfig.Device = dev;
+						m_windowConfig.Window = mv;
+						m_windowConfig.Width = cv.bounds.size.width;
+						m_windowConfig.Height = cv.bounds.size.height;
+        
             m_newEngine = true;
         }
 
@@ -211,7 +219,7 @@ namespace BabylonNative
 #if defined(__APPLE__) || defined(ANDROID)
         void UpdateXRView(WindowType window)
         {
-            m_nativeXr->UpdateWindow(window);
+            
         }
 #endif
 
@@ -262,9 +270,9 @@ namespace BabylonNative
         bool m_isRenderingEnabled{};
         std::once_flag m_isGraphicsInitialized{};
         Babylon::Plugins::NativeInput* m_nativeInput{};
-        std::optional<Babylon::Plugins::NativeXr> m_nativeXr{};
+        std::optional<int> m_nativeXr{};
 
-        Babylon::Graphics::WindowConfiguration m_windowConfig{};
+        Babylon::Graphics::Configuration m_windowConfig{};
 
         std::shared_ptr<bool> m_isXRActive{};
         uint8_t mMSAAValue{};
@@ -388,21 +396,13 @@ namespace BabylonNative
 
     bool IsXRActive()
     {
-        if (auto nativeModule{ g_nativeModule.lock() })
-        {
-            return nativeModule->IsXRActive();
-        }
-
-        return false;
+				return false;
     }
 
 #if defined(__APPLE__) || defined(ANDROID)
     void UpdateXRView(WindowType window)
     {
-        if (auto nativeModule{ g_nativeModule.lock() })
-        {
-            nativeModule->UpdateXRView(window);
-        }
+    
     }
 #endif
 }

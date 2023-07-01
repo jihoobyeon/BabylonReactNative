@@ -1,0 +1,27 @@
+dependencies: \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/SPIRV/SpvPostProcess.cpp \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/SPIRV/SpvBuilder.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/SPIRV/Logger.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/SPIRV/spirv.hpp \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/SPIRV/spvIR.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/SPIRV/GlslangToSpv.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/SPIRV/SpvTools.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/MachineIndependent/localintermediate.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/MachineIndependent/../Include/intermediate.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/MachineIndependent/../Include/../Include/Common.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/MachineIndependent/../Include/PoolAlloc.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/MachineIndependent/../Include/../Include/Types.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/MachineIndependent/../Include/../Include/BaseTypes.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/MachineIndependent/../Include/../Public/ShaderLang.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/MachineIndependent/../Include/../Public/../Include/ResourceLimits.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/MachineIndependent/../Include/../Public/../MachineIndependent/Versions.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/MachineIndependent/../Include/arrays.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/MachineIndependent/../Include/../Include/ConstantUnion.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/MachineIndependent/../Public/ShaderLang.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/MachineIndependent/Versions.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/glslang/Include/intermediate.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/SPIRV/GLSL.std.450.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/SPIRV/GLSL.ext.KHR.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/SPIRV/GLSL.ext.EXT.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/SPIRV/GLSL.ext.AMD.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/glslang/SPIRV/GLSL.ext.NV.h

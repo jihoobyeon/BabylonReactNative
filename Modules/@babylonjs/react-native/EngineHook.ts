@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Platform } from 'react-native';
-import { PERMISSIONS, check, request } from 'react-native-permissions';
-import { Engine, WebXRSessionManager, WebXRExperienceHelper, Color4, Tools, VideoTexture } from '@babylonjs/core';
+import { Engine, Color4, Tools, VideoTexture } from '@babylonjs/core';
 import { ReactNativeEngine } from './ReactNativeEngine';
 import { ensureInitialized } from './BabylonModule';
 
@@ -24,95 +23,14 @@ class DOMException {
 
 // Requests the camera permission and throws if the permission could not be granted
 async function requestCameraPermissionAsync() : Promise<void> {
-    const cameraPermission = Platform.select({
-        android: PERMISSIONS.ANDROID.CAMERA,
-        ios: PERMISSIONS.IOS.CAMERA,
-    });
-
-    // Only Android, iOS and Windows are supported.
-    if (cameraPermission === undefined) {
-        throw new DOMException(DOMError.NotSupportedError);
-    }
-
-    // If the permission has not been granted yet, but also not been blocked, then request permission.
-    let permissionStatus = await check(cameraPermission);
-    if (permissionStatus == "denied")
-    {
-        permissionStatus = await request(cameraPermission);
-    }
-
-    // If the permission has still not been granted, then throw an appropriate exception, otherwise continue with the actual XR session initialization.
-    switch(permissionStatus) {
-        case "unavailable":
-            throw new DOMException(DOMError.NotSupportedError);
-        case "denied":
-        case "blocked":
-            throw new DOMException(DOMError.SecurityError);
-        case "granted":
-            return;
-    }
+    return;
 }
 
 // Override the WebXRSessionManager.initializeSessionAsync to insert a camera permissions request. It would be cleaner to do this directly in the native XR implementation, but there are a couple problems with that:
 // 1. React Native does not provide a way to hook into the permissions request result (at least on Android).
 // 2. If it is done on the native side, then we need one implementation per platform.
-{
-    const originalInitializeSessionAsync = WebXRSessionManager.prototype.initializeSessionAsync;
-    WebXRSessionManager.prototype.initializeSessionAsync = async function (...args: Parameters<typeof originalInitializeSessionAsync>): ReturnType<typeof originalInitializeSessionAsync> {
-        if (Platform.OS === "windows")
-        {
-            // Launching into immersive mode on Windows HMDs doesn't require a runtime permission check.
-            // The Spatial Perception capability should be enabled in the project's Package.appxmanifest.
-            return originalInitializeSessionAsync.apply(this, args);
-        }
 
-        await requestCameraPermissionAsync();
-
-        return originalInitializeSessionAsync.apply(this, args);
-    }
-}
-
-ensureInitialized().then(() => {
-    // Override the navigator.mediaDevices.getUserMedia to insert a camera permissions request. It would be cleaner to do this directly in the NativeCamera implementation, but there are a couple problems with that:
-    // 1. React Native does not provide a way to hook into the permissions request result (at least on Android).
-    // 2. If it is done on the native side, then we need one implementation per platform.
-    {
-        const originalGetUserMedia = navigator.mediaDevices.getUserMedia;
-        navigator.mediaDevices.getUserMedia = async function (...args: Parameters<typeof originalGetUserMedia>): ReturnType<typeof originalGetUserMedia> {
-            await requestCameraPermissionAsync();
-
-            return originalGetUserMedia.apply(this, args);
-        }
-    }
-});
-
-if (Platform.OS === "android" || Platform.OS === "ios") {
-    const originalEnterXRAsync: (...args: any[]) => Promise<WebXRSessionManager> = WebXRExperienceHelper.prototype.enterXRAsync;
-    WebXRExperienceHelper.prototype.enterXRAsync = async function (...args: any[]): Promise<WebXRSessionManager> {
-        // TODO: https://github.com/BabylonJS/BabylonNative/issues/649
-        // Android/iOS require manually clearing the default frame buffer to prevent garbage from being rendered for a few frames during the XR transition
-        const sessionManager = await originalEnterXRAsync.apply(this, args);
-        const scene = sessionManager.scene;
-        const beforeRenderObserver = scene.onBeforeRenderObservable.add(() => {
-            scene.getEngine().unBindFramebuffer(undefined!);
-            scene.getEngine().clear(scene.clearColor, true, false);
-        });
-        sessionManager.onXRSessionEnded.add(() => {
-            scene.onBeforeRenderObservable.remove(beforeRenderObserver);
-        });
-        return sessionManager;
-    };
-} else if (Platform.OS === "windows") {
-    const originalEnterXRAsync: (...args: any[]) => Promise<WebXRSessionManager> = WebXRExperienceHelper.prototype.enterXRAsync;
-    WebXRExperienceHelper.prototype.enterXRAsync = async function (...args: any[]): Promise<WebXRSessionManager> {
-        // TODO: https://github.com/BabylonJS/BabylonNative/issues/577
-        // Windows HMDs require different rendering behaviors than default xr rendering for mobile devices
-        const sessionManager = await originalEnterXRAsync.apply(this, args);
-        sessionManager.scene.clearColor = new Color4(0, 0, 0, 0);
-        sessionManager.scene.autoClear = true;
-        return sessionManager;
-    };
-}
+ensureInitialized().then();
 
 // Babylon Native includes a native atob polyfill, but it relies JSI to deal with the strings, and JSI has a bug where it assumes strings are null terminated, and a base 64 string can contain one of these.
 // So for now, provide a JavaScript based atob polyfill.

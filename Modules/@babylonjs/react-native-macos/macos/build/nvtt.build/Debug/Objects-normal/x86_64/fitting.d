@@ -1,0 +1,21 @@
+dependencies: \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvmath/fitting.cpp \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvmath/fitting.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvmath/vector.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvmath/nvmath.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvcore/utils.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvcore/debug.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvcore/nvcore.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvcore/posh.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvcore/defsgnucdarwin.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvmath/plane.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvmath/vector.inl \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvcore/hash.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvmath/plane.inl \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvmath/matrix.inl \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvmath/matrix.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvcore/array.inl \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvcore/array.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvcore/memory.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvcore/foreach.h \
+  /Users/jihoobyeon/Desktop/BabylonReactNative/Modules/@babylonjs/react-native-macos/submodules/BabylonNative/Dependencies/bgfx.cmake/bimg/3rdparty/nvtt/nvcore/stream.h
