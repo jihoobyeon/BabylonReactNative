@@ -11,7 +11,7 @@
 #include <Babylon/Polyfills/Window.h>
 #include <Babylon/Polyfills/XMLHttpRequest.h>
 #include <Babylon/Polyfills/Canvas.h>
-
+#include <iostream>
 #include <DispatchFunction.h>
 
 namespace BabylonNative
@@ -47,7 +47,6 @@ namespace BabylonNative
             Babylon::JsRuntime::CreateForJavaScript(m_env, Babylon::CreateJsRuntimeDispatcher(m_env, jsiRuntime, m_jsDispatcher, m_isRunning));
 
             // Initialize Babylon Native plugins
-            
             Babylon::Plugins::NativeCapture::Initialize(m_env);
             m_nativeInput = &Babylon::Plugins::NativeInput::CreateForJavaScript(m_env);
             Babylon::Plugins::NativeOptimizations::Initialize(m_env);
@@ -71,11 +70,14 @@ namespace BabylonNative
             Napi::Detach(m_env);
         }
 
-			void UpdateView(Babylon::Graphics::WindowT window, size_t width, size_t height)
+				void UpdateView(WindowType window, size_t width, size_t height)
         {
             m_windowConfig.Window = window;
             m_windowConfig.Width = width;
             m_windowConfig.Height = height;
+            
+            [[[NSApp mainWindow] contentView] addSubview:window];
+            
             UpdateGraphicsConfiguration();
         }
 
@@ -153,22 +155,17 @@ namespace BabylonNative
 
         void Initialize()
         {
-						NSView *cv = [[NSApplication sharedApplication].mainWindow contentView];
-            id<MTLDevice> dev = MTLCreateSystemDefaultDevice();
-						MTKView *mv = [[MTKView alloc] initWithFrame:cv.bounds device:dev];
-						[cv addSubview:mv];
-						
+						id<MTLDevice> dev = MTLCreateSystemDefaultDevice();
+						MTKView *mv = [[MTKView alloc] initWithFrame:[[NSApp mainWindow] frame] device:dev];
 						m_windowConfig.Device = dev;
 						m_windowConfig.Window = mv;
-						m_windowConfig.Width = cv.bounds.size.width;
-						m_windowConfig.Height = cv.bounds.size.height;
-        
+						
             m_newEngine = true;
         }
 
         void ResetView()
         {
-            if (g_graphics)
+						if (g_graphics)
             {
                 g_nativeCanvas->FlushGraphicResources();
                 g_graphics->DisableRendering();
