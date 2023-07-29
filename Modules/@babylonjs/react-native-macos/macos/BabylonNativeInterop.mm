@@ -55,12 +55,8 @@ static NSMutableArray* activeTouches = [NSMutableArray new];
 }
 
 + (void)updateView:(MTKView*)mtkView {
-    const CGFloat scale = mtkView.contentScaleFactor;
-    const int width = static_cast<int>(mtkView.bounds.size.width * scale);
-    const int height = static_cast<int>(mtkView.bounds.size.height * scale);
-    if (width != 0 && height != 0) {
-        BabylonNative::UpdateView(mtkView, width, height);
-    }
+		const CGSize monitor = [[NSScreen mainScreen] frame].size;
+		BabylonNative::UpdateView(mtkView, monitor.width, monitor.height);
 }
 
 + (void)updateMSAA:(NSNumber*)value {
@@ -83,6 +79,7 @@ static NSMutableArray* activeTouches = [NSMutableArray new];
     return BabylonNative::IsXRActive();
 }
 
+#ifndef TARGET_OS_OSX
 + (void)reportTouchEvent:(MTKView*)mtkView touches:(NSSet<UITouch*>*)touches event:(UIEvent*)event {
     for (UITouch* touch in touches) {
         if (touch.view == mtkView) {
@@ -130,5 +127,6 @@ static NSMutableArray* activeTouches = [NSMutableArray new];
         }
     }
 }
+#endif
 
 @end

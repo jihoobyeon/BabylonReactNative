@@ -5,7 +5,7 @@
 #import <ReactCommon/CallInvoker.h>
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+
 #import <MetalKit/MetalKit.h>
 
 @interface EngineView : MTKView
@@ -22,16 +22,31 @@
 }
 
 - (instancetype)init:(RCTBridge*)_bridge {
-    if (self = [super initWithFrame:CGRectZero device:MTLCreateSystemDefaultDevice()]) {
+	#ifdef TARGET_OS_OSX
+		const CGSize monitor = [[NSScreen mainScreen] frame].size;
+		const CGSize appWin = [[NSApp mainWindow] frame].size;
+    if (self = [super initWithFrame:CGRectMake((appWin.width - monitor.width) / 2, (appWin.height - monitor.height) / 2, monitor.width, monitor.height)
+			device:MTLCreateSystemDefaultDevice()]) {
         bridge = _bridge;
         super.translatesAutoresizingMaskIntoConstraints = false;
         super.colorPixelFormat = MTLPixelFormatBGRA8Unorm_sRGB;
         super.depthStencilPixelFormat = MTLPixelFormatDepth32Float;
     }
+    
+		[self setBounds:CGRectMake((appWin.width - monitor.width) / 2, (appWin.height - monitor.height) / 2, monitor.width, monitor.height)];
+	#else
+		if (self = [super initWithFrame:CGRectZero device:MTLCreateSystemDefaultDevice()]) {
+        bridge = _bridge;
+        super.translatesAutoresizingMaskIntoConstraints = false;
+        super.colorPixelFormat = MTLPixelFormatBGRA8Unorm_sRGB;
+        super.depthStencilPixelFormat = MTLPixelFormatDepth32Float;
+    }
+	#endif
     return self;
 }
 
 - (void)setIsTransparentFlag:(NSNumber*)isTransparentFlag {
+	#ifndef TARGET_OS_OSX
     BOOL isTransparent = [isTransparentFlag intValue] == 1;
     if(isTransparent){
         [self setOpaque:NO];
@@ -39,6 +54,7 @@
         [self setOpaque:YES];
     }
     self.isTransparent = isTransparent;
+	#endif
 }
 
 - (void)setMSAA:(NSNumber*)value {
@@ -50,6 +66,7 @@
     [BabylonNativeInterop updateView:self];
 }
 
+#ifndef TARGET_OS_OSX
 - (void)touchesBegan:(NSSet<UITouch*>*)touches withEvent:(UIEvent*)event {
     [BabylonNativeInterop reportTouchEvent:self touches:touches event:event];
 }
@@ -65,8 +82,10 @@
 - (void)touchesCancelled:(NSSet<UITouch*>*)touches withEvent:(UIEvent*)event {
     [BabylonNativeInterop reportTouchEvent:self touches:touches event:event];
 }
+#endif
 
 - (void)drawRect:(CGRect)rect {
+  #ifndef TARGET_OS_OSX
     if ([BabylonNativeInterop isXRActive]) {
         if (!xrView) {
             xrView = [[MTKView alloc] initWithFrame:self.bounds device:self.device];
@@ -80,19 +99,20 @@
         [xrView removeFromSuperview];
         xrView = nil;
     }
-
+	#endif
     [BabylonNativeInterop renderView];
 }
 
--(void)dealloc {
+- (void)dealloc {
     [BabylonNativeInterop updateXRView:nil];
 }
 
 - (void)takeSnapshot {
+	#ifndef TARGET_OS_OSX
     // We must take the screenshot on the main thread otherwise we might fail to get a valid handle on the view's image.
     dispatch_async(dispatch_get_main_queue(), ^{
         // Start the graphics context.
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES /* opaque */, 0.0f);
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0.0f);
         
         // Draw the current state of the view into the graphics context.
         [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:NO];
@@ -108,7 +128,17 @@
             self.onSnapshotDataReturned(@{ @"data":encodedData});
         }
     });
+	#endif
 }
+
+#ifdef TARGET_OS_OSX
+- (void)layout {
+		[super layout];
+		const CGSize monitor = [[NSScreen mainScreen] frame].size;
+		const CGSize appWin = [[NSApp mainWindow] frame].size;
+		self.frame = CGRectMake((appWin.width - monitor.width) / 2, (appWin.height - monitor.height) / 2, monitor.width, monitor.height);
+}
+#endif
 
 @end
 

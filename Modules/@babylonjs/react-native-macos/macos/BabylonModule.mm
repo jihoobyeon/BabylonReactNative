@@ -31,5 +31,4 @@ RCT_EXPORT_METHOD(resetView:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRe
         resolve([NSNull null]);
     });
 }
-
 @end

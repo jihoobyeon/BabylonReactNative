@@ -11,5 +11,7 @@
 + (void)resetView;
 + (void)updateXRView:(MTKView*)mtkView;
 + (bool)isXRActive;
+#ifndef TARGET_OS_OSX
 + (void)reportTouchEvent:(MTKView*)mtkView touches:(NSSet<UITouch*>*)touches event:(UIEvent*)event;
+#endif
 @end
