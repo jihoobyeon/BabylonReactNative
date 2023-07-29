@@ -50,10 +50,10 @@ namespace BabylonNative
             Babylon::JsRuntime::CreateForJavaScript(m_env, Babylon::CreateJsRuntimeDispatcher(m_env, jsiRuntime, m_jsDispatcher, m_isRunning));
 
             // Initialize Babylon Native plugins
-					#ifndef TARGET_OS_OSX
+          #ifndef TARGET_OS_OSX
             m_nativeXr.emplace(Babylon::Plugins::NativeXr::Initialize(m_env));
             m_nativeXr->SetSessionStateChangedCallback([isXRActive{ m_isXRActive }](bool isSessionActive) { *isXRActive = isSessionActive; });
-					#endif
+          #endif
             Babylon::Plugins::NativeCapture::Initialize(m_env);
             m_nativeInput = &Babylon::Plugins::NativeInput::CreateForJavaScript(m_env);
             Babylon::Plugins::NativeOptimizations::Initialize(m_env);
@@ -82,9 +82,9 @@ namespace BabylonNative
             m_graphicsConfig.Window = window;
             m_graphicsConfig.Width = width;
             m_graphicsConfig.Height = height;
-					#ifdef TARGET_OS_OSX
+          #ifdef TARGET_OS_OSX
             [[[NSApp mainWindow] contentView] addSubview:window];
-					#endif
+          #endif
             UpdateGraphicsConfiguration();
         }
 
@@ -162,12 +162,12 @@ namespace BabylonNative
 
         void Initialize()
         {
-					#ifdef TARGET_OS_OSX
-						id<MTLDevice> dev = MTLCreateSystemDefaultDevice();
-						MTKView *mv = [[MTKView alloc] initWithFrame:[[NSApp mainWindow] frame] device:dev];
-						m_graphicsConfig.Device = dev;
-						m_graphicsConfig.Window = mv;
-					#endif
+          #ifdef TARGET_OS_OSX
+            id<MTLDevice> dev = MTLCreateSystemDefaultDevice();
+            MTKView *mv = [[MTKView alloc] initWithFrame:[[NSApp mainWindow] frame] device:dev];
+            m_graphicsConfig.Device = dev;
+            m_graphicsConfig.Window = mv;
+          #endif
             m_newEngine = true;
         }
 
@@ -221,14 +221,14 @@ namespace BabylonNative
             return *m_isXRActive;
         }
 
-#if defined(__APPLE__) || defined(ANDROID)
+    #if defined(__APPLE__) || defined(ANDROID)
         void UpdateXRView(WindowType window)
         {
-					#ifndef TARGET_OS_OSX
+	  #ifndef TARGET_OS_OSX
             m_nativeXr->UpdateWindow(window);
-					#endif
+	  #endif
         }
-#endif
+    #endif
 
         jsi::Value get(jsi::Runtime& runtime, const jsi::PropNameID& prop) override
         {
@@ -416,7 +416,7 @@ namespace BabylonNative
         return false;
     }
 
-#if defined(__APPLE__) || defined(ANDROID)
+  #if defined(__APPLE__) || defined(ANDROID)
     void UpdateXRView(WindowType window)
     {
 			#ifndef TARGET_OS_OSX
@@ -426,5 +426,5 @@ namespace BabylonNative
         }
 			#endif
     }
-#endif
+  #endif
 }
