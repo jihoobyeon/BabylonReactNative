@@ -82,7 +82,7 @@ namespace BabylonNative
             m_graphicsConfig.Window = window;
             m_graphicsConfig.Width = width;
             m_graphicsConfig.Height = height;
-          #ifdef TARGET_OS_OSX
+          #if TARGET_OS_OSX
             [[[NSApp mainWindow] contentView] addSubview:window];
           #endif
             UpdateGraphicsConfiguration();
@@ -162,7 +162,7 @@ namespace BabylonNative
 
         void Initialize()
         {
-          #ifdef TARGET_OS_OSX
+          #if TARGET_OS_OSX
             id<MTLDevice> dev = MTLCreateSystemDefaultDevice();
             MTKView *mv = [[MTKView alloc] initWithFrame:[[NSApp mainWindow] frame] device:dev];
             m_graphicsConfig.Device = dev;
