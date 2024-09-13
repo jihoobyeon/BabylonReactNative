@@ -17,7 +17,7 @@ namespace winrt::BabylonReactNative::implementation {
 
         // IViewManager
         winrt::hstring Name() const noexcept;
-        winrt::Windows::UI::Xaml::FrameworkElement CreateView() noexcept;
+        winrt::BabylonReactNative::EngineView CreateView() noexcept;
 
         // IViewManagerWithReactContext
         winrt::Microsoft::ReactNative::IReactContext ReactContext() noexcept;
@@ -28,7 +28,7 @@ namespace winrt::BabylonReactNative::implementation {
             IMapView<winrt::hstring, winrt::Microsoft::ReactNative::ViewManagerPropertyType>
             NativeProps() noexcept;
         void UpdateProperties(
-            winrt::Windows::UI::Xaml::FrameworkElement const& view,
+            winrt::Microsoft::UI::Xaml::FrameworkElement const view,
             winrt::Microsoft::ReactNative::IJSValueReader const& propertyMapReader) noexcept;
 
         // IViewManagerWithExportedEventTypeConstants

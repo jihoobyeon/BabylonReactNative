@@ -3,7 +3,7 @@ namespace BabylonReactNative
     [webhosthidden]
     [default_interface]
     runtimeclass EngineView :
-        Windows.UI.Xaml.Controls.SwapChainPanel {
+        Microsoft.UI.Xaml.Controls.SwapChainPanel {
       EngineView();
     };
 } // namespace BabylonReactNative

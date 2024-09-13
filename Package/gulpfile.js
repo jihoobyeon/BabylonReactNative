@@ -106,7 +106,7 @@ const buildAndroidRNTA = async () => {
 
 const makeUWPProjectPlatform = async (name, arch) => {
   shelljs.mkdir('-p', `./../Modules/@babylonjs/react-native/Build/uwp_${name}`);
-  exec(`cmake -G "Visual Studio 16 2019" -D CMAKE_SYSTEM_NAME=WindowsStore -D CMAKE_SYSTEM_VERSION=10.0 -DCMAKE_UNITY_BUILD=true ${cmakeBasekitBuildDefinition} -A ${arch} ./../../../react-native-windows/windows`, `./../Modules/@babylonjs/react-native/Build/uwp_${name}`);
+  exec(`cmake -G "Visual Studio 17 2022" -D CMAKE_SYSTEM_NAME=WindowsStore -D CMAKE_SYSTEM_VERSION=10.0 -DCMAKE_UNITY_BUILD=true ${cmakeBasekitBuildDefinition} -A ${arch} ./../../../react-native-windows/windows`, `./../Modules/@babylonjs/react-native/Build/uwp_${name}`);
 };
 
 const makeUWPProjectx86 = async () => makeUWPProjectPlatform('x86', 'Win32');
@@ -567,7 +567,7 @@ const patchPackageVersion = async () => {
 
     if (versionIndex != -1) {
       const version = process.argv[versionIndex + 1];
-      if (version == '0.64' || version == '0.65' || version == '0.69' || version == '0.70' || version == '0.71') {
+      if (version == '0.64' || version == '0.65' || version == '0.69' || version == '0.70' || version == '0.71' || version == '0.74') {
         console.log(chalk.black.bgCyan(`Updating Package.json for React Native ${version}.`));
 
         // default 0.64
@@ -584,6 +584,9 @@ const patchPackageVersion = async () => {
           packageNamePostfix = '-0-70';
         } else if (version == '0.71') {
           peerDep = '>=0.71.0';
+          packageNamePostfix = '-0-71';
+        } else if (version == '0.74') {
+          peerDep = '>=0.74.0';
           packageNamePostfix = '-0-71';
         }
 
@@ -647,7 +650,7 @@ exports.packAndroid = packAndroid;
 
 const copyPackageFilesUWP = gulp.series(copyUWPFiles);
 const buildUWPPublish = gulp.series(patchPackageVersion, buildUWP, copyPackageFilesUWP, switchToBaseKit, patchPackageVersion, buildUWP, copyPackageFilesUWP);
-const packUWP = gulp.series(clean, buildUWP, copyPackageFilesUWP, createPackage, createPackageUWP);
+const packUWP = gulp.series(clean, buildUWP, copyPackageFilesUWP, createPackageUWP);
 const packUWPNoBuild = gulp.series(clean, copyPackageFilesUWP, createPackage, createPackageUWP);
 
 exports.buildTS = buildTS;

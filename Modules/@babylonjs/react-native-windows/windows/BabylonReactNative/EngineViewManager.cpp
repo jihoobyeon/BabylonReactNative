@@ -8,7 +8,7 @@ using namespace winrt::Microsoft::ReactNative;
 using namespace winrt::Windows::Foundation;
 using namespace winrt::Windows::Foundation::Collections;
 
-using namespace winrt::Windows::UI::Xaml;
+using namespace winrt::Microsoft::UI::Xaml;
 
 namespace winrt::BabylonReactNative::implementation {
     EngineViewManager::EngineViewManager() {}
@@ -18,7 +18,7 @@ namespace winrt::BabylonReactNative::implementation {
         return L"EngineView";
     }
 
-    FrameworkElement EngineViewManager::CreateView() noexcept {
+    winrt::BabylonReactNative::EngineView EngineViewManager::CreateView() noexcept {
         _engineView = make<EngineView>();
         return _engineView;
     }
@@ -43,7 +43,7 @@ namespace winrt::BabylonReactNative::implementation {
     }
 
     void EngineViewManager::UpdateProperties(
-        FrameworkElement const& view,
+        FrameworkElement const view,
         IJSValueReader const& propertyMapReader) noexcept {
 
         if (auto engineView = view.try_as<EngineView>()) {
