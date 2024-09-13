@@ -6,7 +6,7 @@ on:
         description: 'ReactNative Version'
         required: true 
         type: string
-        default: '0.71.0'
+        default: '0.74.5'
       BRN_Version:
         description: 'BRN package version'
         required: true 
@@ -16,7 +16,7 @@ on:
         description: 'BRN package postfix'
         required: true 
         type: string
-        default: '0-71'
+        default: '0-74'
       BJS_Version:
         description: 'Babylon.js version'
         required: true 
