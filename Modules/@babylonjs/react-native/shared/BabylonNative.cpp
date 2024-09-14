@@ -174,7 +174,7 @@ namespace BabylonNative
         }
 
         void SetMouseButtonState(uint32_t buttonId, bool isDown, int32_t x, int32_t y)
-        {
+        { /*
             if (isDown)
             {
                 m_nativeInput->MouseDown(buttonId, x, y);
@@ -182,16 +182,16 @@ namespace BabylonNative
             else
             {
                 m_nativeInput->MouseUp(buttonId, x, y);
-            }
+            } */
         }
 
         void SetMousePosition(int32_t x, int32_t y)
-        {
-            m_nativeInput->MouseMove(x, y);
+        { 
+         // m_nativeInput->MouseMove(x, y);
         }
 
         void SetTouchButtonState(uint32_t pointerId, bool isDown, int32_t x, int32_t y)
-        {
+        { /*
             if (isDown)
             {
                 m_nativeInput->TouchDown(pointerId, x, y);
@@ -199,12 +199,12 @@ namespace BabylonNative
             else
             {
                 m_nativeInput->TouchUp(pointerId, x, y);
-            }
+            } */
         }
 
         void SetTouchPosition(uint32_t pointerId, int32_t x, int32_t y)
         {
-            m_nativeInput->TouchMove(pointerId, x, y);
+         // m_nativeInput->TouchMove(pointerId, x, y);
         }
 
         bool IsXRActive()
