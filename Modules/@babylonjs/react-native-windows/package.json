@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@babylonjs/core": "^7.25.0",
-    "@babylonjs/react-native": "version",
+    "@babylonjs/react-native": "file:../react-native",
     "react": "18.3.1",
     "react-native": ">=0.74.0",
     "react-native-windows": ">=0.74.0"
