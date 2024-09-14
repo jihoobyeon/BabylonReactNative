@@ -11,7 +11,7 @@ on:
         description: 'BRN package version'
         required: true 
         type: string
-        default: '1.5.3-preview'
+        default: '1.8.6'
       BRN_Postfix:
         description: 'BRN package postfix'
         required: true 
@@ -21,7 +21,7 @@ on:
         description: 'Babylon.js version'
         required: true 
         type: string
-        default: '6.0'
+        default: '7.0'
       Node_Version:
         description: 'Node.js Version (18+ for RN 0.73+)'
         required: true 
