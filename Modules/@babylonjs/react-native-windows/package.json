@@ -15,7 +15,7 @@
     "baseUrl": "https://github.com/babylonjs/BabylonReactNative"
   },
   "dependencies": {
-    "@babylonjs/core": ">=5.53.1",
+    "@babylonjs/core": "^7.25.0",
     "@babylonjs/react-native": "version",
     "react": "18.3.1",
     "react-native": ">=0.74.0",
