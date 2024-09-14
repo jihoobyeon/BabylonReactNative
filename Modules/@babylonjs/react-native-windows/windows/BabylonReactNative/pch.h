@@ -34,4 +34,4 @@
 #define NODE_ADDON_API_DISABLE_DEPRECATED
 #endif
 
-#include "../../@babylonjs/react-native/shared/BabylonNative.h"
+#include "../../react-native/shared/BabylonNative.h"
