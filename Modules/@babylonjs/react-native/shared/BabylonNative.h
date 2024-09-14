@@ -16,7 +16,7 @@ namespace BabylonNative
         using WindowType = MTKView*;
     #elif defined(ANDROID)
         using WindowType = ANativeWindow*;
-    #elif WINAPI_FAMILY == WINAPI_FAMILY_APP
+    #elif WINAPI_FAMILY == WINAPI_FAMILY_DESKTOP_APP
         using WindowType = winrt::Microsoft::UI::Xaml::Controls::SwapChainPanel;
     #else
         #error Unsupported platform
