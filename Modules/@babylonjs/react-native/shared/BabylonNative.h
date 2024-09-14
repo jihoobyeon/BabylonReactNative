@@ -6,8 +6,8 @@
 #include <MetalKit/MTKView.h>
 #elif defined(ANDROID)
 #include <android/native_window.h>
-#elif WINAPI_FAMILY == WINAPI_FAMILY_APP
-#include <winrt/Windows.UI.Xaml.Controls.h>
+#elif WINAPI_FAMILY == WINAPI_FAMILY_DESKTOP_APP
+#include <winrt/Microsoft.UI.Xaml.Controls.h>
 #endif
 
 namespace BabylonNative
@@ -17,7 +17,7 @@ namespace BabylonNative
     #elif defined(ANDROID)
         using WindowType = ANativeWindow*;
     #elif WINAPI_FAMILY == WINAPI_FAMILY_APP
-        using WindowType = winrt::Windows::UI::Xaml::Controls::SwapChainPanel;
+        using WindowType = winrt::Microsoft::UI::Xaml::Controls::SwapChainPanel;
     #else
         #error Unsupported platform
     #endif
