@@ -45,12 +45,13 @@ jobs:
           npx react-native init Playground --version ${{ github.event.inputs.RN_Version }}
           cp Apps/Playground/playground-shared/App.tsx ./Playground/App.tsx
           cd Playground
-          npx react-native-windows-init --overwrite
+          npm install react-native-windows@^0.74.21
+          npx react-native init-windows --template cpp-app --overwrite
           npm install @babylonjs/core@${{ github.event.inputs.BJS_Version }}
           npm install @babylonjs/loaders@${{ github.event.inputs.BJS_Version }}
-          npm install @babylonjs/react-native@${{ github.event.inputs.BRN_Version }}
-          npm install @babylonjs/react-native-windows-${{ github.event.inputs.BRN_Postfix }}@${{ github.event.inputs.BRN_Version }}
-          npm install @react-native-community/slider
+          npm install ../Modules/@babylonjs/react-native
+          npm install ../Modules/@babylonjs/react-native-windows
+          # npm install @react-native-community/slider
           # npm install react-native-permissions
           npx react-native autolink-windows
           msbuild.exe /r "./windows/Playground.sln"
